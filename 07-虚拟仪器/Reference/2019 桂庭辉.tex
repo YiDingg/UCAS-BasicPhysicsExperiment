@@ -1,0 +1,394 @@
+\documentclass[UTF-8,twoside,cs4size]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{xeCJK}
+\usepackage{ulem}
+\usepackage{pstricks}
+\usepackage{pstricks-add}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{breqn}
+\usepackage{mathrsfs}
+\usepackage{esint}
+\usepackage{textcomp}
+\usepackage{upgreek}
+\usepackage{pifont}
+\usepackage{graphicx}
+
+\geometry{a4paper,centering,top=0.75cm,bottom=2.54cm,left=2cm,right=2cm}
+\pagestyle{plain}
+
+%\CTEXsetup[number={\chinese{section}}]{section}
+\CTEXsetup[name={,.}]{section}
+\CTEXsetup[format={\raggedright\bfseries\noindent\Large}]{section}
+\CTEXsetup[format={\raggedright\bfseries\quad\large}]{subsection}
+
+\setstretch{1.5}
+
+\setCJKfamilyfont{boldsong}[AutoFakeBold = {2.17}]{SimSun}
+\newcommand*{\boldsong}{\CJKfamily{boldsong}}
+
+\begin{document}
+	\begin{flushright}
+		\zihao{2}{分组号:3-07}
+	\end{flushright}
+	
+	\noindent{\zihao{-2}\boldsong\bfseries 《\,\, 基\,\, 础\,\, 物\,\, 理\,\, 实\,\, 验\,\, 》\,\, 实\,\, 验\,\, 报\,\, 告\,\, }
+	
+	\noindent\textit{实验名称\uline{\quad 虚拟仪器在物理实验中的应用\;\;\,\qquad\qquad\qquad\qquad\qquad}指导教师\uline{\qquad\,\,\,\,李凡\,\,\,\,\qquad}}
+	
+	\noindent\textit{姓\qquad 名\uline{\,\,\, 桂庭辉\,\,\,}\,学号\uline{\,\,\,{\upshape2019K8009929019}\,\,\,}\,专\qquad 业\uline{\,\,\,计算机科学与技术\,\,\,}\,班级\uline{\,\,\,\upshape{03}\,\,\,}\,座号\uline{\,\,\,\upshape{6}\,\,\,}}
+	
+	\noindent\textit{实验日期\uline{\,\,{\upshape 2020}\,\,}年\uline{\,\,{\upshape 10}\,\,}月\uline{\,\,{\upshape28}\,\,}日\,\,实验地点\uline{\,\,\,教学楼{\upshape702}\,\,\,}调课/补课\uline{\,\,\,$ \square $是\,\,\,}成绩评定\uline{\,\,\,\quad\qquad\qquad}}
+	
+	\begin{table}[h]
+		\centering
+		\psset{linewidth=2pt}
+		\begin{pspicture}(-1,-0.1)(1,0.1)
+		\psline(-9,0)(9,0)
+		\end{pspicture}
+	\end{table}
+
+	\section{实验目的}
+	1.了解虚拟仪器的概念；
+	
+	2.了解图形化编程语言LabVIEW，学习简单的LabVIEW编程；
+	
+	3.完成伏安法测电阻的虚拟仪器设计。
+	
+	\section{实验设备}
+	计算机（含操作系统），LabVIEW 2014，NI ELVIS II$ ^+ $，导线若干，原件盒一个（包括$ 100\,\Omega $标准电阻一个，待测电阻$ 1\,\mathrm{k\Omega} $和$ 51\,\Omega $各一个，稳压二极管一个）。
+	\section{实验原理}
+	\subsection{虚拟仪器的硬件}
+	本实验使用的硬件平台为个人电脑（PC机）、美国国家仪器公司（National Instruments）的教学实验室虚拟仪器套件（Educational Laboratory Virtual Instrumentation Suite） II$ ^+ $ （缩写即为NI ELVIS II$ ^+ $）与其自带的原型板。
+	
+	虚拟仪器综合实验平台ELVIS II$ ^+ $不仅集成了8路差分输入（或16路单端输入）模拟数据采集通道、24路数字I/O通道，还集成了包括示波器、数字万用表在内的多款常用仪器。同时它是开源平台，通过USB连接PC后，用户可以在LabVIEW中进行定制，使用LabVIEW Express VI和LabVIEW Signal Express的步骤对设备进行编程，实现更多更强大的功能。	
+	
+	本实验旨在初步了解虚拟仪器在物理实验中的应用，故而仅需要关心模拟信号输入输出、原型板各接口间如何连通、如何在原型板上以传统电路为原型连接电路即可。
+	
+	在该平台上进行实验与传统电学实验相比，能够更为轻松而简单地搭建服务于实验者目的的实验电路，同时获得的数据也更为精确，节省了人工读数、计数的时间与精力，也能一定程度上避免传统电路元件的频繁损耗。
+	
+	\subsection{LabVIEW软件平台}
+	本实验采用LabVIEW作为用于虚拟仪器系统设计的软件开发平台。LabVIEW将计算机数据分析和显示能力与仪器驱动程序整合在一起，为针对仪器的编程提供了许多便利。同时，与其他常见的计算机高级语言相比，LabVIEW具有图形化的特点，这一点将编程过程简化为设计流程图，实验者即便没有计算机基础，也能在很短时间内的学习中掌握LabVIEW编程的基本操作与初级技巧。
+	
+	用LabVIEW进行编程的集成开发环境简称VI，其包括三个部分：前面板、程序框图和图标/连线板。
+	
+	前面板用于设置输入数值与显示输出量，相当于真实仪表的前面板，类比到常见的计算机软件中即为GUI部分（Graphical User Interface，图形用户界面）。前面板上的图标分为输入类（Controls）和显示类（Indicators），具体而言可以是开关、旋钮、图形、图表等表现形式。
+	
+	程序框图则相当于仪器的内部功能结构，类似常见计算机软件中的后台进程。程序框图中的端口用于和前面板的输入对象和显示对象传递数据，节点用于实现函数与功能子程序调用，图框用于实现结构化程序控制命令，连线则代表程序执行过程中的数据流。
+	
+	如ELVIS II$ ^+ $一样，LabVIEW的功能丰富而强大，而本次实验中仅聚焦于为实现实验目的的一部分即可。
+	
+	\subsection{测量伏安特性曲线}
+	回顾应用传统仪器测定伏安特性曲线的实验原理，图\ref{fig1}给出了应用两个电压表$ U_0,U_1 $与一个标准电阻$ R_0 $来测定待测电阻$ R_1 $的大小。由串联电路的分压原理可知，用总电压$ U_0 $减去标准电阻上的电压$ U_1 $即得到待测电阻上的电压；根据欧姆定律可知，用标准电阻上的电压$ U_1 $除以标准电阻阻值$ R_0 $即可得到电路中的电流$ I $。再由欧姆定律即可求得待测电阻的阻值
+	\[R=\frac{U_0-U_1}{U_1}R_0\]
+	当然，为进一步渐消实验误差，还需多次改变电源的电动势$ \mathscr E $以获得多组实验数据。如需测定二极管的伏安特性曲线，则除将待测电阻替换为二极管外，还需根据二极管正反接情况调整电源、电压表的正负极接线。
+	\begin{figure}[h]
+		\centering
+		\begin{circuitikz}
+			\draw (0,0)
+			to[battery,l=$ \mathscr E $] (6,0)
+			to[short] (6,2)
+			to[european resistor,l_=$ R_0 $] (3,2)
+			to[european resistor,l_=$ R_1 $] (0,2);
+			\draw (3,2)
+			to[short,*-] (3,1)
+			to[voltmeter,-*,l_=$ U_1 $] (6,1);
+			\draw (0,0)
+			to[short,*-] (0,-1)
+			to[voltmeter,l_=$ U_0 $] (6,-1)
+			to[short,-*] (6,0);
+			\draw (0,0)
+			to[short] (0,2);
+		\end{circuitikz}
+		\caption{\small 传统实验“伏伏法”测电阻伏安特性曲线电路图}
+		\label{fig1}
+	\end{figure}
+
+	应用虚拟仪器测定伏安特性的原理电路与传统仪器实验类似（见图\ref{fig2}）。与传统利用电源电动势为整个电路供电不同，本实验中利用一个模拟输出通道为整个测量电路供电，同时利用两个模拟输入通道取代电压表，分别测量总电压与标准电阻上的电压。
+	
+	\begin{figure}[h]
+		\centering
+		\begin{circuitikz}
+			\draw (0,-1) node[ground]{}
+			to[short] (0,3)
+			to[short,l=ELVIS输出端供电] (6,3)
+			to[short] (6,1);
+			\draw (0,1)
+			to[short,*-] (0.5,1)
+			to[european resistor,l=标准电阻] (3,1)
+			to[european resistor,l=待测电阻] (5.5,1)
+			to[short] (6,1);
+			\draw (0.5,1)
+			to[short,*-] (0.5,2)
+			to[short,l=测总电压] (5.5,2)
+			to[short,-*] (5.5,1);
+			\draw (0.5,1)
+			to[short] (0.5,0)
+			to[short,l_=测电压算电流] (3,0)
+			to[short,-*] (3,1);
+		\end{circuitikz}
+		\caption{\small 用虚拟仪器测量伏安特性原理图}
+		\label{fig2}
+	\end{figure}
+
+	求得阻值的方式与传统仪器实验并无不同，而读数、计算、线性拟合这些工作虚拟仪器实验中都交由计算机来完成，节省了时间与精力。此外，虚拟仪器可由程序控制总电压从$ 0\,\mathrm V $开始逐渐增加到指定电压，不需要频繁手工设置相应电动势的电源。在测定二极管伏安特性曲线时，切换正反接时也无需重新接线，仅将电压递增步长调整为负值即可。
+
+	\section{实验内容与步骤}
+	\subsection{初步熟悉LabVIEW开发环境的基本操作和编程方法}
+	通过各种方式之一启动LabVIEW 2014后，新建VI项目即可得到新项目的前面板与程序框图。通过在这两个窗口间切换、探索，我们不难初步了解如何快速切换到另一个窗口、如何添加调整各种控件、控件调整时两个窗口间的同步变化、丰富的右键快捷菜单，学习标签工具、定位工具、连线工具乃至各种快捷键。
+	\subsection{创建一个模拟温度测量程序}
+	假设传感器的输出电压与温度成正比。那么可以利用计算机程序由电压值来计算温度值，同时我们希望程序中可以用开关来使温度单位在摄氏度与华氏度间切换。为使实验简单，采用一个输入控件而非数据采集卡对传感器的测量结果，将电压值乘100得到华氏温度值，如需显示摄氏温度值，则再将其转换为摄氏温度即可。
+
+	\begin{figure}[p]
+	\centering
+	\includegraphics*[scale=0.5]{exp2-1.jpg}
+	\includegraphics*[scale=0.5]{exp2-2.jpg}
+	\caption{\small 模拟温度测量前面板与程序框图}
+	\end{figure}
+
+	实验步骤为：
+
+	(1)新建VI项目，在前面板中，放入温度计、垂直滑动杆开关、数值显示控件、数值输入控件，并利用标签工具修改其名称以表示所需的含义。
+	
+	(2)在程序框图中，在函数选板中找到乘法、减法、除法、比较函数，将其与相应的图标通过连线工具连接起来，并在需要的地方创建数值常量。整个程序创建完毕后，最后整理图标位置与连线，使得程序框图更为美观。
+	
+	(3)运行程序：选择前面板窗口，点击连续运行按钮使得程序运行于连续运行模式，改变“采集的电压”控件输入值和温度值单位，观察程序运行情况。再次点击连续运行按钮即可停止程序运行。
+	
+	(4)保存该VI项目，关闭程序。
+	
+	\subsection{创建一个电压输出和采集的程序}
+	此实验中，除了进一步温习上一个实验中在前面板、程序框图上的设计操作，还开始使用了原型板，了解了如何简单地将原型板与计算机程序进行交互。计算机程序指示原型板在模拟输出端输出指定大小的电压，通过连线后使得原型板上模拟输入端与之等压，再将模拟输入端读入的数据呈递给计算机程序。此外，再LabVIEW程序设计上还进一步了解了While循环结构的设计方式。
+	
+	\begin{figure}[p]
+		\centering
+		\includegraphics*[scale=0.5]{exp3-1.jpg}
+		\includegraphics*[scale=0.5]{exp3-2.jpg}
+		\caption{\small 电压输出与采集前面板与程序框图}
+	\end{figure}
+
+	实验步骤为：
+
+	(1)新建VI项目，在程序框图中创建虚拟通道，将其类型设置为模拟输出电压。将“DAQmx开始任务”、“DAQmx写入”和“DAQmx清除任务”三个节点放入程序框图，并将其连接，在“DAQmx写入”的图标数据输入端创建输入控件。创建一个While循环结构，使得每等待100\,ms执行一次循环结构内部分，直至在前面板按下停止按钮。
+	
+	(2)编写电压采集程序，在程序框图中创建虚拟输入电压通道，以类似的方式构建任务链与While循环，不同之处在于此处不采用“DAQmx写入”控件而是“DAQmx读取”控件，其连接输出控件而非输入控件；While循环中每100\,ms所执行的操作并非重新读取输出电压而是重新输出采集电压数据。
+	
+	(3)通过USB线连接PC与原型板，打开ELVIS电源与原型板电源，在前面板上设置输出通道为Dev7/ao0（Dev后编号视实际连接结果而定），输入通道为Dev7/ai0。在原型板上用原型板连接模拟输出的“AO 0”端和模拟输入的“AI $ 0+ $”端，将“AI $ 0- $”端与接地端“AIGND”用导线连接。在前面板窗口运行VI程序，不断改变输出电压，观察测量电压是否与输出电压一致，也可点击停止按钮观察程序运行情况。
+	
+	(4)停止程序运行，保存VI项目，关闭程序。
+	
+	\subsection{用虚拟仪器测量伏安特性}
+	此实验中编写一个较前两个实验更为复杂同时也为我们所熟知的实验程序，先对两个不同的待测电阻进行阻值测定与伏安特性曲线绘制，然后利用虚拟仪器设置反向电压的便利来测定二极管的正反向的伏安特性曲线。
+	
+	实验步骤：
+	
+	(1)编写前面板：在前面板上放上Express XY图用于显示电压--电流图。放入四个数值型输入控件，分别用于输入“输出电压步长”、“测量数据点数”、“标准电阻”、“时间间隔”四个参数，并规定时间间隔与输入电压步长的单位。放入一个数值型显示控件用于显示电阻测量值，放入一个二维数组显示控件用于显示测量的电压和电流。最后放入一个开关用于控制程序进程。
+	
+	(2)编写程序框图：放入一个5帧的顺序结构，第0帧用于让ELVIS输出电压，第1帧让程序等待100\,ms至电路稳定，第2帧用于让ELVIS采集总电压与标准电阻上的电压，第3帧再次让程序等待100\,ms以减少对数据测量过程的影响，第4帧令顺序结构结束时电压输出为0。这样的顺序结构实现了测量一次的过程，要逐渐改变电压值来测量电阻的值，还需加入一个While循环结构，使得While循环及其中的顺序结构在执行次数i不大于测量数据点数时循环执行。用能在相邻两次循环之间传递数据的移位寄存器实现数据的实时显示，通过一个“创建数组”来显示测量数据，将电压、电流数组分别与“创建XY图”的X、Y输入相连。为求得电阻值，需在循环外放入一个“线性拟合”节点，将移位寄存器传递出来的电流、电压数组与“线性拟合”的X、Y输入端相连，将其“斜率”输出端与“待测电阻值”显示控件相连，用于显示电阻值。
+	
+	(3)正确连接外部电路，根据实验原理部分中给出的原理电路图与上一步DAQ助手设置的输入输出端口，在原型板上连接实验电路，具体连线方式见下页图\ref{fig5}。
+	
+	(4)在前面板上设置各参数，运行程序测量两个待测电阻的电阻值，分析实验结果。
+	
+	(5)利用此前的程序，通过设置“输出电压步长”的正负来给二极管与标准电阻两端加上正反向的电压，由此测定并绘制稳压二极管伏安特性曲线。
+	
+	\begin{figure}[p]
+		\centering
+		\includegraphics*[scale=0.4]{exp4-1.jpg}
+		\includegraphics*[scale=0.35]{exp4-2.jpg}
+		\includegraphics*[scale=0.1]{exp4-3.jpg}
+		\caption{\small 测定伏安特性曲线前面板与程序框图}
+		\label{fig5}
+	\end{figure}
+
+	~\\
+	
+	~\\
+	
+	~\\
+	
+	\section{实验结果与数据处理}
+	\subsection{线性元件($ 1\,\mathrm k\Omega $，$ 51\,\Omega $电阻)的伏安特性曲线}
+	\textbf{$ 1\,\mathrm k\Omega $电阻的测量结果：}
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			电压（V） & 电流（A）\\
+			\hline
+			$ -0.00161081 $ & $ -6.48\mathrm E-06 $\\
+			\hline
+			0.0892387 & $ 8.69\mathrm E-05 $\\
+			\hline
+			0.180733 & 0.000173928\\
+			\hline
+			0.270616 & 0.000267355\\
+			\hline
+			0.362109 & 0.000360782\\
+			\hline
+			0.452315 & 0.000447765\\
+			\hline
+			0.543486 & 0.000537971\\
+			\hline
+			0.634336 & 0.000628176\\
+			\hline
+			0.725186 & 0.000721603\\
+			\hline
+			0.81668 & 0.000808586\\
+			\hline
+			0.906885 & 0.000902013\\
+			\hline
+			0.997413 & 0.00099544\\
+			\hline
+			1.08858 & 0.00108564\\
+			\hline
+			1.17911 & 0.00117585\\
+			\hline
+			1.27028 & 0.00126928\\
+			\hline
+		\end{tabular}
+		\caption{\small $ 1\,\mathrm k\Omega $电阻测量结果}
+	\end{table}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics*[scale=1.5]{fig6.png}
+		\caption{\small $ 1\,\mathrm k\Omega $电阻的伏安特性曲线}
+	\end{figure}
+
+~\\
+
+~\\
+
+	\textbf{$ 51\,\Omega $电阻的测量结果}
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			电压（V） & 电流（A）\\
+			\hline
+			$ -0.000966484 $ & $ -1.29\mathrm E-05 $\\
+			\hline
+			0.0331826 & $ 6.44\mathrm E-04 $\\
+			\hline
+			0.0657209 & 0.00130794\\
+			\hline
+			0.0998701 & 0.00196515\\
+			\hline
+			0.133053 & 0.00262558\\
+			\hline
+			0.167524 & 0.00327634\\
+			\hline
+			0.201029 & 0.00393355\\
+			\hline
+			0.234534 & 0.00459076\\
+			\hline
+			0.268361 & 0.00525442\\
+			\hline
+			0.300577 & 0.00591485\\
+			\hline
+			0.334082 & 0.00657528\\
+			\hline
+			0.367587 & 0.00723249\\
+			\hline
+			0.401414 & 0.00789292\\
+			\hline
+			0.435241 & 0.00854691\\
+			\hline
+			0.469068 & 0.00920412\\
+			\hline
+			0.501929 & 0.00986777\\
+			\hline
+		\end{tabular}
+		\caption{\small $ 51\,\Omega $电阻测量结果}
+	\end{table}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics*[scale=1.4]{fig7.png}
+		\caption{\small $ 51\,\Omega $电阻伏安特性曲线}
+	\end{figure}
+
+	由伏安特性曲线可以看出，这两个纯电阻的伏安特性曲线均为直线，故而他们都为“线性元件”。
+	
+~\\
+
+~\\
+
+~\\
+
+	\subsection{稳压二极管的伏安特性曲线}
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{二极管负向} & \multicolumn{2}{|c|}{二极管正向}\\
+			\hline
+			电压（V） & 电流（A） & 电压（V） & 电流（A）\\
+			\hline
+			$ -0.00193297 $ & $ -6.48\mathrm E-06 $ & $ -0.00128865 $ & $ -9.70\mathrm E-06 $\\
+			\hline
+			$ -0.151738 $ & $ -6.48\mathrm E-06 $ & $ 0.148516 $ & $ -6.48\mathrm E-06 $\\
+			\hline
+			$ -0.301543 $ & $ -6.48\mathrm E-06 $ & $ 0.979929 $ & $ -3.88\mathrm E-08 $\\
+			\hline
+			$ -0.45167 $ & $ -3.26\mathrm E-06 $ & 0.445227 & $ 2.90\mathrm E-05 $\\
+			\hline
+			$ -0.600831 $ & $ -9.70\mathrm E-06 $ & 0.556051 & 0.000418771\\
+			\hline
+			$ -0.751602 $ & $ -6.48\mathrm E-06 $ & 0.610818 & 0.00135626\\
+			\hline
+			$ -0.900763 $ & $ -9.70\mathrm E-06 $ & 0.641746 & 	0.00254181\\
+			\hline
+			$ -1.05186 $ &	$ -6.48\mathrm E-06 $&	0.661398&	0.00383368\\
+			\hline
+			$ -1.20134 $&	$ -9.70\mathrm E-06 $&	0.67654	&0.00516743\\
+			\hline
+			$ -1.35114 $&	$ -6.48\mathrm E-06 $& 	0.68685	&0.00655273\\
+			\hline
+			$ -1.50063 $&	$ -1.29\mathrm E-05 $&	0.696837&	0.00794124\\
+			\hline
+			$ -1.65108 $&	$ -6.48\mathrm E-06 $&	0.703925&	0.00935231\\
+			\hline
+			$ -1.80153 $&	$ -6.48\mathrm E-06 $	&0.710369&	0.0107763\\
+			\hline
+			$ -1.95069 $&	$ -6.48\mathrm E-06 $&	0.713591&	0.0112305\\
+			\hline
+			$ -2.10114 $&	$ -9.70\mathrm E-06 $&	0.712624&	0.011121\\
+			\hline
+			$ -2.25094 $&	$ -1.29\mathrm E-05 $&	0.712302&	0.0110501\\
+			\hline			
+		\end{tabular}
+		\caption{\small 稳压二极管的测量结果}
+	\end{table}
+	
+	\begin{table}[h]
+		\centering
+		\includegraphics*[scale=1.3]{fig8.png}
+		\caption{\small 稳压二极管的伏安特性曲线}
+	\end{table}
+
+	稳压二极管并不是线性元件，容易看出其伏安特性曲线并非直线，而且在第四象限的曲线部分趋近于横轴，即给二极管反向加电时二极管电阻非常大；相应地，第一象限内曲线虽不是射线，但电流随电压增大而快速增大，即给二极管正向加电时二极管导通。
+	
+	\section{实验总结}
+	\subsection{讲义思考题}
+	1.虚拟仪器系统与传统仪器有什么区别？请简要说明。
+	
+	\textit{传统仪器在实验时常常会因读数不便、调整不变、自动化程度低、过于依赖人工等因素给实验者带来许多苦恼与压力，而虚拟仪器的灵活高效解决了这些问题，同时提供了高精度、高效率等优点。此外，一套完善的LabVIEW程序有时能解决一类类似的实验。如本次实验中的伏安特性曲线测定实验，应用传统仪器在每次获取一组新数据时都需要调整实验仪器、关注量表的量程，更换待测目标时更可能伴随着部分仪器的更换，而虚拟仪器系统仅需更改几个参数，更为便利、快捷。}
+	
+	2.本实验内容3中的电压输出和采集哪个先执行？
+	
+	\textit{电压输出先执行。先将电压输出并稳定后采集端才能读取到准确的电压数值。}
+	
+	\subsection{实验中的问题与感想}
+	得益于讲义的完善与助教的细心指导，即便此前对LabVIEW、ELVIS II$ ^+ $一无所知，我也能在实验过程中高效完成前三个实验。但当第四个实验没有了讲义指导连接外部电路后，对原型板功能缺乏完整且系统了解的我曾一度手足无措，不知如何下手。好在实验设计上实验三给出的外部电路连接方式向我暗示了模拟输出电压端、模拟输入电压端的功能，意识到这一点的我结合讲义给出的原理电路图很快设计出了连线方式。
+	
+	LabVIEW编程与计算机专业学生时常接触到的高级编程语言、硬件描述语言都有所不同，一来其主要面向电路实验，二来其编程接口并非文本编辑器而是图形化编程环境。图形化的编程环境无疑降低了对实验者计算机操作、编程能力的要求，即便是从未接触过编程的同学相信也能很快完成本实验。
+	
+	虚拟仪器作为计算机、电子信息工程、自动化、物理等多学科交叉的成果，经由本次实验向我进一步揭示了学科交叉所能带来的重要影响与巨大革新。虚拟仪器若能得到进一步的发展、得到更广泛的开发与应用，不仅能为物理工作者带来影响，其图形化编程思想也能让计算机编程教育、发展得到一定程度的革新。
+\end{document}
