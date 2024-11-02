@@ -4,12 +4,12 @@
 
 为了同学们能够更好地借鉴合理且严谨的表达和排版方式，快速入门物理实验，掌握实验报告的撰写流程，用最少的时间尽量多地去领略物理实验中的精巧与优美，我整理了多位学长学姐与本人的报告。
 
-**本仓库既包含本人的实验报告（`.tex` 和 `.pdf` 格式），也包含多位学长学姐的报告以供参考（`.tex` 和 `.pdf` 格式）。** 如果你擅长并愿意使用 Latex 来排版你的实验报告，可以直接 [download](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment/archive/refs/heads/main.zip)、clone 甚至 [fork](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment/fork) 本仓库，也可以到备用网址 [（待更新）(123 云盘)]() 下载本仓库。
+本仓库既包含本人的实验报告，也包含多位学长学姐的报告以供参考（在每个实验的 `Reference` 文件夹中）。**仓库的内容包括但不限于 `.pdf` 实验报告、`.tex` 源文件、原始数据、实验照片、作图专用纸、各种示意图以及多份参考报告。** 但是，考虑到仓库大小限制，实验讲义等由老师提供的资源并没有放在仓库中，如有需要，可到网址 [（待更新）(123 云盘)]() 自行下载。
+
+如果你擅长并愿意使用 Latex 来排版你的实验报告，可以直接 [download](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment/archive/refs/heads/main.zip)、clone 甚至 [fork](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment/fork) 本仓库，也可以到备用网址 [（待更新）(123 云盘)]() 下载本仓库。
 ``` shell
 git clone ssh://git@ssh.github.com:443/YiDingg/UCAS-BasicPhysicsExperiment.git
 ```
-
-仓库的内容包括但不限于 `.pdf` 实验报告、`.tex` 源文件、原始数据、实验照片、作图专用纸、各种示意图以及多份参考报告。但是，考虑到仓库大小限制，实验讲义等由老师提供的资源并没有放在仓库中，如有需要，可到网址 [（待更新）(123 云盘)]() 自行下载。
 
 如果你**不使用 Latex 而是使用 Word**，需要参考 `.docx` 源文件，可到下方提供的网址下载其他前辈的实验报告。下表列出了目前提供的所有资源，它们均已得到报告撰写者本人授权。姓名上的超链接指向对应的 GitHub 仓库，姓名后提供了两种下载方式：GitHub (主要方式) 和 123 云盘 (备用方式)。
 
@@ -35,7 +35,12 @@ git clone ssh://git@ssh.github.com:443/YiDingg/UCAS-BasicPhysicsExperiment.git
 
 下面是实验报告的一些示例图片：
 
-Refer to [GitHub > UCAS-BasicPhysicsExperiment](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment) for the collection of basic physics experiment reports. Below are some previews.
+### 微波衍射实验报告
+
+![img](https://gcore.jsdelivr.net/gh/YiDingg/UCAS-BasicPhysicsExperiment/assets/image1.png)
+![img](https://gcore.jsdelivr.net/gh/YiDingg/UCAS-BasicPhysicsExperiment/assets/image2.png)
+![img](https://gcore.jsdelivr.net/gh/YiDingg/UCAS-BasicPhysicsExperiment/assets/image3.png)
+![img](https://gcore.jsdelivr.net/gh/YiDingg/UCAS-BasicPhysicsExperiment/assets/image4.png)
 
 
 ### 磁滞回线实验报告
