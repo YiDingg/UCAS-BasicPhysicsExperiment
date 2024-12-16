@@ -510,21 +510,22 @@ f=\frac1\lambda\sqrt{\frac T\mu}
     \end{tabular}
 }
 \end{table}
+\begin{figure}[H]\centering
+\begin{subfigure}[b]{0.5\columnwidth}\centering
+    \includegraphics[height=170pt]{assets/波速测量 波节.jpg}
+    \caption{波节记录}
+\end{subfigure}\hfill
+\begin{subfigure}[b]{0.5\columnwidth}\centering
+    \includegraphics[height=170pt]{assets/波速测量 示波器.jpg}
+    \caption{示波器记录}
+\end{subfigure}
+\caption{波速测量实验照片}
+\end{figure}
 可见在误差允许范围内两种方法得到的波速大小可看作相等。
 
-\subsubsection{频率与有效长度的关系}
-将砝码放在第2格，改变有效长度 $L$（即波长 $\lambda$），测量基频$ f_1 $，数据实验数据如表 \ref{不同有效长度下的基频} 所示。根据实验数据，在 Matlab 中用最小二乘法求出拟合直线，如图 \ref{有效长度与基频的线性拟合} 所示：
-\begin{figure}[H]\centering
-    \includegraphics[width=0.9\columnwidth]{assets/3.pdf}
-    \caption{有效长度与基频的线性拟合}
-    \label{有效长度与基频的线性拟合}
-\end{figure}
-其中拟合直线为：
-\begin{equation}
-y = -1.089 \,x + 10.39,\quad x = \ln L,\ y = \ln f
-\end{equation}
-由图和拟合直线斜率$ k=-1.089\approx-1 $可知，在误差允许范围内可以认为$ \ln f_1=-\ln L+C $（$ C $为常数），即$ f_1\propto\frac1L $，又由于$ L\propto\lambda $，故而实际验证的物理规律为$ f_1\propto\lambda_1 $。
 
+\subsubsection{频率与有效长度的关系}
+将砝码放在第2格，改变有效长度 $L$（即波长 $\lambda$），测量基频$ f_1 $，数据实验数据如表 \ref{不同有效长度下的基频} 所示。
 \begin{table}[H]\centering
     %\renewcommand{\arraystretch}{1.5} % 调整行间距为 1.5 倍
     %\setlength{\tabcolsep}{1.5mm} % 调整列间距
@@ -539,11 +540,35 @@ y = -1.089 \,x + 10.39,\quad x = \ln L,\ y = \ln f
     \bottomrule
 \end{tabular}
 \end{table}
+根据实验数据，在 Matlab 中用最小二乘法求出拟合直线，如图 \ref{有效长度与基频的线性拟合} 所示，其中拟合直线为：
+\begin{equation}
+y = -1.089 \,x + 10.39,\quad x = \ln L,\ y = \ln f
+\end{equation}
+由图和拟合直线斜率$ k=-1.089\approx-1 $可知，在误差允许范围内可以认为$ \ln f_1=-\ln L+C $（$ C $为常数），即$ f_1\propto\frac1L $，又由于$ L\propto\lambda $，故而实际验证的物理规律为$ f_1\propto\lambda_1 $。
+
+
+
+\begin{figure}[H]\centering
+    \includegraphics[width=0.9\columnwidth]{assets/3.pdf}
+    \caption{有效长度与基频的线性拟合}
+    \label{有效长度与基频的线性拟合}
+\end{figure}
 
 %	理论上上表第三行中数据应在误差允许范围内可看作相等，但实际数据中前两项相等，后三项相等，可能的原因是当弦线有效长度减小后，激振源与接收器距离过近，激振源发出信号由接收器直接接收对基频的测定造成了干扰使得实验结果出错。
 
 \subsubsection{频率与张力的关系}
-将琴码分别放置在200\,mm和600\,mm位置，固定有效长度$ L=400\,\mathrm{mm} $，将砝码分别放置在1-5格，测量不同拉力下的基频$ f_1 $。数据记录如下：
+将琴码分别放置在200\,mm和600\,mm位置，固定有效长度$ L=400\,\mathrm{mm} $，将砝码分别放置在1-5格，测量不同拉力下的基频$ f_1 $。数据记录见表 \ref{频率与张力的关系}。
+根据实验数据，在 Matlab 中用最小二乘法求出拟合直线，如下图所示：
+\begin{figure}[H]\centering
+    \includegraphics[width=0.9\columnwidth]{assets/4.pdf}
+    \caption{频率与张力的线性拟合}
+\end{figure}
+图中拟合直线为：
+\begin{equation}
+y = 0.4934 \,x + 3.135
+\end{equation}
+由拟合直线斜率$ k=0.4934\approx\frac12 $可知$ \ln f_1=\frac 12\ln T+C $(此时$ C $为常数)，即$ f_1\propto\sqrt{T} $.
+
 \begin{table}[H]\centering
     %\renewcommand{\arraystretch}{1.5} % 调整行间距为 1.5 倍
     %\setlength{\tabcolsep}{1.5mm} % 调整列间距
@@ -558,17 +583,6 @@ y = -1.089 \,x + 10.39,\quad x = \ln L,\ y = \ln f
     \bottomrule
 \end{tabular}
 \end{table}
-根据实验数据，在 Matlab 中用最小二乘法求出拟合直线，如下图所示：
-\begin{figure}[H]\centering
-    \includegraphics[width=0.9\columnwidth]{assets/4.pdf}
-    \caption{频率与张力的线性拟合}
-\end{figure}
-图中拟合直线为：
-\begin{equation}
-y = 0.4934 \,x + 3.135
-\end{equation}
-由拟合直线斜率$ k=0.4934\approx\frac12 $可知$ \ln f_1=\frac 12\ln T+C $(此时$ C $为常数)，即$ f_1\propto\sqrt{T} $.
-
 
 \subsubsection{频率与线密度之间的关系}
 将琴码分别放置在200\,mm和600\,mm位置，固定有效长度$ L=400\,\mathrm{mm} $，将砝码放置在\textbf{第 3 格}，通过共享数据得到不同粗细琴弦的基频。数据记录如表 \ref{不同线密度琴弦的基频} 所示：
@@ -741,6 +755,11 @@ v=v_0\sqrt{\frac{T}{T_0}}=v_0\sqrt{1+\frac{t}{273.15}}
     \eta = \frac{v_{\text{expe}} - v_{\text{theo}}}{v_{\text{theo}}} = 0.27132\ \%
 \end{equation}
 可以看到，理论值和实验值近乎完美符合。
+\begin{figure}[H]\centering
+    \includegraphics[width=0.75\columnwidth]{assets/相位法.jpg}
+    \caption{相位法测波速实验照片}
+\end{figure}
+
 
 \subsubsection{相位法测超声波在水中的声速}
 调节信号发生器产生频率$ f=1.8\,\mathrm{MHz} $的正弦波，连接实验器材，调节声速测量仪鼓轮，用相位法取$ \Delta\varphi=2\pi $（间隔一个波长）时的位置测得数据如下：
@@ -786,9 +805,10 @@ v=v_0\sqrt{\frac{T}{T_0}}=v_0\sqrt{1+\frac{t}{273.15}}
 根据实验原理部分可知出现驻波的条件为$ n\lambda = 2L\;(n=1,2,3,\cdots) $，即有效长度是半波长的正整数倍。将弦线振动调节至驻波最稳定、最显著时弦线状态最接近驻波出现条件的状态，确保各点处前进波和反射波确实发生了有稳定相位差的稳定干涉，使得测得的基频更为准确。
 
 如何实现驻波的最稳定和最显著状态？
-根据实验原理，驻波产生的条件是 $ n\lambda = 2L\;(n=1,2,3,\cdots) $，意味着有效长度必须是半波长的整数倍。当弦线的振动被调整至最稳定和最显著的驻波状态时，弦线的状态将最接近驻波产生的条件，确保各点的前进波和反射波能够发生具有稳定相位差的干涉，从而提高基频测量的准确性。
+根据实验原理，驻波产生的条件是 $ n\lambda = 2L\;(n=1,2,3,\cdots) $，意味着有效长度必须是半波长的整数倍。当弦线的振动被调整至最稳定和最显著的驻波状态时，弦线的状态将最接近驻波产生的条件，确保各点的前进波和反射波能够发生相位差稳定的干涉，从而提高准确性。
 
-\subsection*{3.4 \ \ 在弹奏弦线乐器时，发出声音的音调与弦线的长度、粗细、松紧程度由什么关系？为什么？}
+\subsection*{3.4 \ \ 在弹奏弦线乐器时，发出声音音调与弦线的长度、粗细、松紧程度有什么关系，为什么？}
+
 在弹奏弦线乐器时，弦线长度越短、直径越小、琴弦越紧，发出声音的音调越高。弦线乐器的声音与弦线振动的频率$ f $正相关，而由实验过程验证过的实验原理$ \ln f=\frac12\ln T-\frac12\ln\mu-\ln\lambda $可得：$ f\propto\frac1L,\;f\propto\frac{1}{\sqrt\mu},\;f\propto\sqrt T $，即$ f $与弦线长度成负相关、弦线粗细成负相关、弦线松紧程度成正相关。
 
 弹奏弦乐器时，弦线越短、直径越细、绷得越紧，发出的音调越高。弦乐器的音高与弦线的振动频率$ f $ 正相关，而根据实验原理中的 $ \ln f=\frac12\ln T-\frac12\ln\mu-\ln\lambda $，$ f\propto\frac1L,\;f\propto\frac{1}{\sqrt\mu},\;f\propto\sqrt T $，即 $ f $ 与弦线长度成反比、与弦线的粗细的 0.5 次方成反比、与弦线的松紧程度呈正相关。
