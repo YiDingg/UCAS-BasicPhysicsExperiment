@@ -308,11 +308,11 @@
 % ------------------------ 文章信息区 ------------------------ %
 
 % 每次实验报告需要修改的信息有：
-% 1. 左上角页眉 
-% 2. 实验名称 
-% 3. 实验日期 
-% 4. 实验地点 
-% 5. 指导教师 
+% 1. 左上角页眉  
+% 2. 实验名称  
+% 3. 实验日期  
+% 4. 实验地点  
+% 5. 指导教师  
 
 % 页眉页脚设置
 \usepackage{fancyhdr}   %宏包：页眉页脚设置
@@ -323,7 +323,7 @@
     \renewcommand\footrulewidth{0pt}
     \rhead{\bfseries \large {\color{red} 分组序号: 2-05}}
     \chead{《基础物理实验》预习报告,\ 丁毅,\ 2023K8009908031}
-    \lhead{\small Ex.04 热导测量 (2024.12.09)}
+    \lhead{\small Ex.05 气垫导轨 (2024.12.17)}
 \begin{document}
 
 
@@ -333,9 +333,9 @@
     \\\vspace{0.5mm}
     \noindent{
     {\bfseries 
-    实验名称：\uline{\hspace{1.2cm} 温度与热导率的测量 \hspace{1.2cm}}
+    实验名称：\uline{\hspace{0.2cm} 气轨上弹簧振子的简谐振动及瞬时速度的测定 \hspace{0.2cm}}
     }\hspace{0.4cm}
-    指导教师：\uline{\hspace{2.8cm} \  \ \hspace{2.8cm}}
+    指导教师：\uline{\hspace{1.6cm} \  \ \hspace{1.6cm}}
     }
     \\\vspace{0.1cm}
     \noindent
@@ -347,8 +347,8 @@
     }
     \\\vspace{0.1cm}
     \noindent{
-    实验日期：\uline{\,\,{ 2024.12.09}\,\,}\hspace{0.2cm}
-    实验地点：\uline{\,\,\,教学楼{427}\,\,\,}\hspace{0.2cm}
+    实验日期：\uline{\,\,{ 2024.12.17}\,\,}\hspace{0.2cm}
+    实验地点：\uline{\,\,\,教学楼{716}\,\,\,}\hspace{0.2cm}
     是否调课/补课：\uline{\hspace{0.26cm}否 \hspace{0.26cm}}\hspace{0.2cm}
     成绩：\uline{\hspace{2cm}}
     }
@@ -360,9 +360,9 @@
 % 目录
 %\zihao{-5}
 \setcounter{tocdepth}{3}  % 目录深度为 2（不显示 subsubsection）
-\noindent\tableofcontents\thispagestyle{fancy}   % 显示页码、页眉等
-\newpage
-\rhead{\bfseries\small 分组序号: 2-05}
+%\noindent\tableofcontents\thispagestyle{fancy}   % 显示页码、页眉等
+%\newpage
+%\rhead{\bfseries\small 分组序号: 2-05}
 \zihao{5}
 % ------------------------ 文章信息区 ------------------------ %
 % ------------------------ 文章信息区 ------------------------ %
@@ -370,327 +370,112 @@
 
 %% 下面是正文内容
 
-\section{第一部分：动态法测定良导体的热导率}
 
-\subsection{实验目的}
+\section{实验目的}
 \begin{enumerate}
-\item 通过实验学会一种测量热导率的方法；
-\item 了解动态法的特点和优越性；
-\item 认识热波，加强对波动理论的理解。
+\item 观察简谐振动现象，测定简谐振动的周期。
+\item 求弹簧的倔强系数$k$和有效质量$m_0$。
+\item 观察简谐振动的运动学特征。
+\item 验证机械能守恒定律。
+\item 用极限法测定瞬时速度。
+\item 深入了解平均速度和瞬时速度的关系。
 \end{enumerate}
 
 
-\subsection{实验仪器与用具}
-仪器主机由绝热材料紧裹侧表面的圆棒状样品\footnote{本实验选用铜、铝两种样品。}、热电偶列阵、实现边界条件的脉动热源及冷却装置组成。样品中热量将只沿轴向传播，在任意一个垂直于棒轴的截面上各点温度相同。那么只要测得轴线上各点温度分布，就能够确定整个棒体上的温度分布。温度的测量通过热电偶列阵实现：将热电偶偶端均匀插在棒内轴线处，两个相邻偶间距离均为2\,cm，此外还需用冷却水冷却，以保证棒尾的温度$ T_0 $恒定，进而防止整个棒温起伏。
 
-本实验仪器包括样品单元、控制单元和记录单元三大部分，有手动、程控两种工作方式。这两种方式的差异在于记录单元。手动方式使用高精度$ x-y $记录仪，而程控方式用计算机实现对整个系统的控制、数据的采集、记录与绘图。
+\section{实验仪器}
+    气垫导轨、滑块、附加砝码、弹簧、 U 型挡光片、平板挡光片、数字毫秒计、天平等。
 
-\subsection{实验原理}
-在样品上取一小段作为棒元，示意图如图(\ref{difx})。根据热传导定律，单位时间内流过某垂直于传播方向上面积$ A $的热量，即热流为
+\section{实验原理}
+\subsection{弹簧振子的间谐运动}
+在水平的气垫导轨上，两个相同的弹簧中间系一个滑块，滑块做往返振动，
+若不考虑滑块运动的阻力，可以认为滑块的振动是理想的简谐振动。
+
+设质量为$m_1$的滑块初始时处于平衡位置，此时每个弹簧的初始伸长量为$x_0$，当滑块偏离平衡点x
+时，受弹性力$-k_1(x+x_0)$与$-k_1(x-x_0)$的作用，其中$k_1$是弹簧的倔强系数。根据牛顿第二定律，列出其运
+动方程：$ - kx = m\ddot x$，其中 $k = 2 k_1$。
+
+式中的 $m$与弹簧质量$m_1$并不相同。因为事实上弹簧也是有一定质量的，这导致了实际的运动并非严
+格的简谐振动，而是需要考虑弹簧内部形成的驻波，详细推导需要采用分离变量法解微分方程，这里直接
+给出结果：若在近似的仍欲采用简谐振动的结论，则可考虑只取一级近似，引入“弹簧有效质量”$m_0$
+
+由一级近似可计算得$m = m_1 + m_0$，$m_0$为弹簧质量的$\frac{1}{3}$，这样对应该方程的解为：
 \begin{equation}
-\frac{\mathrm{d} q}{\mathrm{d} t}=-kA\frac{\mathrm{d} T}{\mathrm{d} x}
+    x = A\sin ({\omega _0}t + {\varphi _0})\quad {\omega _0} = \sqrt {\frac{k}{m}} 
 \end{equation}
-其中$ k $为待测材料热导率，$ A $为截面积，$ \frac{\mathrm{d} T}{\mathrm{d} x} $为温度对$ x $的梯度。
 
-\begin{figure}[!h]
-    \centering
-    \begin{tikzpicture}
-        \draw (0,0)--(6,0);
-        \draw (0,2)--(6,2);
-        \draw [thick] (2,2) arc (90:270:0.3 and 1);
-        \draw [thick, dashed] (2,0) arc (-90:90:0.3 and 1);
-        \draw [thick] (4,2) arc (90:270:0.3 and 1);
-        \draw [thick, dashed] (4,0) arc (-90:90:0.3 and 1);
-        \draw [<-] (2.3,2.5)--(3.7,2.5) node[right]{$ T $};
-        \draw [->] (2.3,-0.8) node[left]{$ x $}--(3.7,-0.8);
-        \node [below] at(2,0) {$ x $};
-        \node [below] at(4,0.1) {$ x+\mathrm{d} x $};
-        \draw (2,1.3)--(2.5,0.7) node[right]{$ q $};
-        \draw (4,1.3)--(4.5,0.7) node[right]{$ q+\mathrm{d} q $};
-    \end{tikzpicture}
-    \caption{棒元示意图}
-    \label{difx}
-\end{figure}
-
-将上式两边对坐标取微分有
+其中周期与固有频率的关系为
 \begin{equation}
-\frac{\mathrm{d}^2 q}{\mathrm{d} x\mathrm{d} t}=-kA\frac{\mathrm{d}^2 T}{\mathrm{d} x^2}\,\Longrightarrow\,\mathrm{d}\frac{\mathrm{d} q}{\mathrm{d} t}=-kA\frac{\mathrm{d}^2 T}{\mathrm{d} x^2}
+    T = \frac{{2\pi }}{{{\omega _0}}} = 2\pi \sqrt {\frac{m}{k}}  = 2\pi \sqrt {\frac{{{m_1} + {m_0}}}{k}} 
 \end{equation}
 
-根据能量守恒定律，任一时刻棒元的热平衡方程为
+将上式两边平方可以得到
 \begin{equation}
-C\rho A\mathrm{d} x\frac{\mathrm{d} T}{\mathrm{d} t}=\mathrm{d}\frac{\mathrm{d} q}{\mathrm{d} t}=-kA\frac{\mathrm{d}^2 T}{\mathrm{d} x^2}\mathrm{d} x
+    {T^2} = \frac{{4{\pi ^2}\left( {{m_1} + {m_0}} \right)}}{k}
 \end{equation}
-其中$ C,\,\rho $分别为材料的比热容与密度，由此可得热流方程
+
+在实验中，我们改变$m_1$，测出相应的$T$，采用作图法获得$T-m_1$的曲线，理论上该曲线应为一条直
+线，直线的斜率为$\frac{4 \pi^2}{k}$，采用最小二乘法可以计算出该直线的斜率，进而算出劲度系数到$k$的值。同
+时，可以从该条直线的截距获取$m_0$的值。也可采用逐差法求解k和$m_0$的值。
+
+\subsection{简谐运动的运动学特征}
+运动方程两边同时对时间求导，即可得到
 \begin{equation}
-\frac{\mathrm{d} T}{\mathrm{d} t}=D\frac{\mathrm{d}^2 T}{\mathrm{d} x^2}
+    v = \frac{{dx}}{{dt}} = A{\omega _0}\cos \left( {{\omega _0}t + {\varphi _0}} \right)
 \end{equation}
-其中$ D=\frac{k}{C\rho} $称为热扩散系数。上式的解表示了各点温度随时间的变化，其具体形式取决于边界条件。若令热端温度随时间简谐变化，即
+
+由此可见，速度v与时间有关，且随时间的变化关系也为简谐振动，角频率为$\omega_0$，振幅为$A \omega_0$，而且
+度$v$的相位比位移$x$超前$\frac{\pi}{2}$
+
+联立$x$-$t$方程与$v$-$t$方程，消去时间$t$，即可得到
 \begin{equation}
-T=T_0+T_m\sin\omega t
+    {v^2} = \omega _0^2\left( {{A^2} - {x^2}} \right)
 \end{equation}
-另一端用冷水冷却，保持恒定低温$ T_0 $，则上式的解，即棒中各点的温度为
+
+当$x=A$时，$v=0$；当$x=0$时，$v =  \pm A{\omega _0}$，此时$v$取最大值
+
+本实验可以通过观察$x$和$v$随时间的变化规律，以及$x$和$v$之间的相位关系。利用拟合的方法算出角频
+率。
+
+\subsection{简谐振动的机械能}
+在实验中，任何时刻系统的振动动能为
 \begin{equation}
-T=T_0-\alpha x+T_m\exp\left(-\sqrt{\frac{\omega}{2D}}x\right)\sin\left(\omega t-\sqrt{\frac{\omega}{2D}}x\right)
+    {E_k} = \frac{1}{2}m{v^2} = \frac{1}{2}\left( {{m_1} + {m_2}} \right){v^2}
 \end{equation}
-其中$ T_0 $为直流成分，$ \alpha $为线性成分的斜率，从上式可以看出：
 
-{\kaishu (a)热端$ (x=0) $处温度按简谐方式变化时，这种变化将以衰减波的形式在棒内向冷端传播，称为热波；}
+由于此前在第一个实验项目中，已经测得弹簧的劲度系数为$k$，因此可以直接算得系统的弹性势能为
+（以$m_1$位于平衡位置时系统的势能为零）
 
-{\kaishu (b)热波波速$ v=\sqrt{2D\omega} $；}	
-{\kaishu (c)热波波长$ \lambda=2\pi\sqrt{\frac{2D}{\omega}} $.}
-
-因此在热端温度变化的角频率已知的情况下，只要测出波速或波长即可计算出$ D $。再由$ D=\frac{k}{C\rho} $计算出材料的热导率$ k $。本实验根据$ v=\sqrt{2D\omega} $可得
 \begin{equation}
-v^2=2\frac{k}{C\rho}\omega\,\Longrightarrow\,k=\frac{v^2C\rho}{4\pi f}=\frac{v^2C\rho}{4\pi}T
+    {E_p} = \frac{1}{2}k{x^2}
 \end{equation}
-其中$ f,\,T $分别为热端温度按简谐变化的频率和周期。实现上述测量的关键在于热量在样品中一维传播、热端温度按简谐变化。
 
-\subsection{实验步骤}
-\begin{enumerate}
-\item 检查各处连接管路是否有堵塞，然后打开水源，从出水口观察流量，要求水流稳定。两个冷却水管在两个样品中是串联的，水流先铝后铜，故而一般先测铜样品，后测铝样品，以免冷却水变热。
-\item 打开电源，主机进入工作状态。
-\item 打开操作软件，在控制软件中设置热源周期$ T=180\,\mathrm s $，先选用铜样品进行测量。
-\item 按下“操作”栏中“测量”按钮，使仪器开始测量工作，在窗口上画出$ T-t $曲线族。测量约40分钟后，系统进入动态平衡，样品内温度动态稳定。此时按下“暂停”，在“文件”菜单中保存相应数据。
-\item 换用铝样品重做步骤4。
-\item 将实验数据通过网络发送给自己，先关闭测量仪器，再关闭计算机。
-
-\end{enumerate}
-
-\section{第二部分：温度的测量和温度计的设计}
-
-\subsection{实验目的}
-\begin{enumerate}
-\item 用电位差计测热电偶的温差电动势；
-\item 用平衡电桥测热敏电阻和铜电阻的温度特性曲线；
-\item 设计非平衡电桥实现对热敏电阻的实时测量。
-\end{enumerate}
-
-
-\subsection{实验仪器与用具}
-\subsubsection{DHT-2热学实验装置温控仪}
-本实验采用DHT-2型热学实验仪进行温度计的控温，其内装有热电偶温度计、铜电阻温度计、热敏电阻温度计，通过加热丝升温、风扇降温，可以用来测试不同类型温度计的温度特性曲线、确定温度系数等。
-
-使用过程中依次将“信号输入”、“加热电流”依次与加热炉上接口相连，然后连接电源、打开电源开关。
-
-按设定键(S)选择温度位数，用上下键加减数值，连续未按设定键(S)八秒，自动停止闪烁并返回正常显示设定值。设定加热温度后打开面板上的加热电流开关。本次实验中建议加热电流为$ 0.6\,\mathrm A $。
-\subsubsection{UJ36a型携带式直流电位差计}
-本实验采用UJ36a型携带式直流电位差计测量热电偶的电压。利用补偿法原理测量直流电压（或电动势）和对各种直流毫伏表及电子电位差计进行刻度矫正。
-
-本次实验的实际调节过程中，接入待测电压后将倍率开关拨到“$ \times 0.2 $”，调零检流计，将电键开关拨到“标准”，调节工作电流调节变阻器，使检流计再次指零，将电键开关拨到未知。调节滑线读数盘使得检流计再次置零，那么未知电压读数为
+所以系统的机械能为
 \begin{equation}
-U_x=\text{滑线盘读数}\times\text{倍率}
+    E = {E_k} + {E_p} = \frac{1}{2}m{\omega ^2}{A^2} = \frac{1}{2}k{A^2}
 \end{equation}
-\subsubsection{DHQJ-5型教学用多功能电桥}
-本实验采用DHQJ-5型教学用多功能电桥进行电阻测定与温度计的实时测量，具有开放式电桥、双臂电桥、单臂电桥、功率电桥和非平衡使用的单臂电桥等功能，本次实验主要再单臂电桥下，用平衡电桥测温度计的电阻，用非平衡电桥对温度计进行实时测量。
 
-在平衡电桥下，检流计中的电流与电压均为0，则待测电阻值为
+上式中的$k$和$A$均不随时间变化
+
+通过测量滑块$m_1$在不同位置$x$的速度$v$，从而计算弹性势能和振动势能，并验证他们之间的相互转换
+关系和机械能守恒定律是否吻合。
+
+\subsection{瞬时速度的测量}
+设变速运动的物体在 $\Delta t$ 时间中经过的路程为$\Delta s$，则其平均速度为$\overline v  = \frac{{\Delta s}}{{\Delta t}}$
+
+当$\Delta t$与$\Delta s$均趋于0时，平均速度的极限就为物体的瞬时速度。
+
+在实验中，在倾斜的气轨上，于A点处放置一光电门，在滑块上先后安装上挡光距离不同的U形
+挡光片，使各挡光片的第一挡光边距A点为l。滑块每次自P点由静止开始下滑，分别测出相应的挡光
+时间$\Delta t$及挡光距离$\Delta s$。（设滑块由静止下滑距离l后的瞬时速度为$v_0$即第一挡光时滑块的瞬时速度），
+则有：
 \begin{equation}
-R_x=\frac{R_2}{R_1}R_3
+    \overline v  = \frac{{\Delta s}}{{\Delta t}} = {v_0} + \frac{1}{2}a \cdot \Delta t
 \end{equation}
 
-非平衡电桥是单臂电桥在非平衡状态下的一种工程应用。DHQJ-5在非平衡使用时，其造作步骤基本与单臂电桥相同，但测量目的与方法有很大差异，在本次实验中，选用非平衡电桥电压的变化线性表示热敏电阻温度计测量温度的变化。
-
-\subsection{实验原理}
-\subsubsection{用电位差计测热电偶的温差电动势}
-热电偶又被称作温差电偶，是由A,B两种不同材料的金属丝的端点彼此紧密接触而成的。当两个接点处于不同温度$ t,\,t_0 $时，在回路中会产生直流电动势，该电动势被称为温差电动势或热电动势。当组成热电偶的材料一定时，温差电动势$ E_x $仅与两接点处的温度有关，且两接点的温度在一定温度范围内有如下近似关系式：
-\begin{equation}
-E_x\approx\alpha(t-t_0)
-\end{equation}
-其中$ \alpha $称为温差电系数，对于不同金属组成的热电偶，$ \alpha $不同。%其数值上等于两接点温度差为1\,\textcelsius 时产生的电动势。
-
-为了测量温差电动势，就需要将热电偶接入电位差计，但测量仪器的引入不能影响热电偶的性质，故而实验时需保证一定条件。根据伏打定律，即在A,B两种金属之间接入第三种金属C，且其与A,B两接点处于同一温度，这样的闭合回路的温差电动势与上述只有A,B两种金属组成回路中的温差电动势数值完全相同。所以通常将A,B两根化学成分不同的金属丝一端焊接在一起，构成热电偶的热端，将另两端各与铜引线\footnote{即第三种金属C。}焊接，构成两个同温度的冷端。
-
-铜引线与电位差计相连，从而构成了一个热电偶温度计。通常将冷端置于冰水混合物中，保持$ t_0=0 $\,\textcelsius，将热端置于待测温度处，即可测得相应的温差电动势。%再根据事先校正好的曲线或数据来求出温度$ t $。
-
-%	热电偶温度计有点在于热容量小、灵敏度高、反应迅速、测温范围广，还能将温度转换成电学量，因此其再自动测温、控温等系统中得到广泛应用。
-
-\subsubsection{金属电阻温度计}
-
-
-金属电阻温度计：一般而言，金属电阻随温度的变化规律为
-\begin{equation}
-R_x=R_{x0}(1+\alpha t+\beta t^2)
-\end{equation}
-其中$ R_{x0} $为$ t=0 $\,\textcelsius 时的电阻值。如铜电阻的相关参数为
-\begin{equation}
-R_{x0}=50\,\Omega\qquad \alpha=4.289\times10^{-3}\mathrm{^\circ C}^{-1}\qquad \beta=2.133\times10^{-7}\mathrm{^\circ C}^{-2}
-\end{equation}
-
-
-通常，在温度不是很高的情况下，可忽略温度二次项$ \beta t^2 $，从而可将金属的电阻值随温度的变化看作线性变化，即
-\begin{equation}
-R_x=R_{x0}(1+\alpha t)=R_{x0}+\alpha tR_{x0}
-\end{equation}
-利用控温仪将铜电阻的温度控制在一系列的温度值上，待温度稳定后，用平衡电桥测出铜电阻的阻值，画出温度--阻值曲线，进行线性拟合即可求出温度系数。
-
-\subsubsection{半导体热敏温度计}
-半导体热敏电阻NTC通常由一些金属氧化物如$ \mathrm{Fe_3O_4} $、$ \mathrm{MgCr_2O_4} $等半导体制成。在这些半导体内部，自由电子数目随着温度升高迅速增加，导电能力的增强很快，所以NTC具有负的电阻温度系数，随着温度升高，其电阻值迅速下降。通过改良也可以设计出正温度系数的热敏电阻，简称PTC。
-
-热敏电阻的电阻温度特性可以用下述指数函数来描述：
-\begin{equation}
-R_T=A\,e^{B/T}
-\end{equation}
-式中$ A $是与材料性质的电阻器几何形状有关的常数，$ B $是与材料半导体性质有关的常数，$ T $为绝对温度。
-
-为了求得准确的$ A,B $，可将上式两边取对数：
-\begin{equation}\label{2-3-2-2-1}
-    \ln R_T=\ln A+\frac BT
-\end{equation}
-选定不同的温度$ T $，可得到不同的$ R_T $。
-
-当$ T=T_1 $时，有
-\begin{equation}
-\ln R_{T_1}=\ln A+\frac{B}{T_1}
-\end{equation}
-当$ T=T_2 $时，有
-\begin{equation}
-\ln R_{T_2}=\ln A+\frac{B}{T_2}
-\end{equation}
-将以上两式相减后可得
-\begin{equation}\label{2-3-2-2-2}
-    B=\frac{\ln R_{T_1}-\ln R_{T_2}}{\frac{1}{T_1}-\frac{1}{T_2}}
-\end{equation}
-常用半导体热敏电阻的$ B $值约在$ 1500\sim 5000\,\mathrm K $之间。
-
-将式(\ref{2-3-2-2-2})代入式(\ref{2-3-2-2-1})可得
-\begin{equation}\label{2-3-2-2-3}
-    A=R_{T_1}\,e^{-B/T_1}
-\end{equation}
-
-利用控温仪将热敏电阻温度控制在一系列温度点上，用平衡电桥测出相应的电阻，根据式(\ref{2-3-2-2-1})进行线性拟合，可以求出热敏电阻的温度系数$ A,\,B $；若只测两个温度点，也可以通过式(\ref{2-3-2-2-2}) 和 (\ref{2-3-2-2-3})求出$ A,\,B $.
-
-
-
-
-\subsubsection{设计非平衡电桥实现对热敏电阻的实时测量}
-
-\begin{center}
-\noindent\begin{minipage}{0.62\columnwidth}
-    \hspace*{2em} 非平衡电桥的电路图如右图所示。
-    非平衡电桥的测试步骤与平衡电桥一样，只是选用电压表测两端电压，认为电压表内阻无穷大，忽略流过电压表的电流。平衡时电桥电压为0，而非平衡电桥电压$ U_0 $随$ R_x $实时变化，通过计算选取合适的$ R_1,\,R_2,\,R_2 $以及$ E $，让测试电压$ U_0 $随温度$ t $线性变化，则可以对温度进行实时测量。
-
-    可求得：
-    \begin{equation}\label{2-3-3-1}
-        U_0=\left(\frac{R_x}{R_2+R_x}-\frac{R_3}{R_1+R_3}\right)E
-    \end{equation}
-    其中：
-    \begin{equation}\label{2-3-3-2}
-        R_x=A\,e^{B/T}
-    \end{equation}
-    $ A,B $的值可分别根据式(\ref{2-3-2-2-2}),(\ref{2-3-2-2-3})求得。
-
-\end{minipage}\hfill\begin{minipage}{0.32\columnwidth}
-    \begin{figure}[H]
-        \centering
-        \resizebox{\columnwidth}{!}{
-            \begin{circuitikz}
-                \draw (0.8,0.5)
-                to[short] (0,0)
-                to[short,o-] (-2.5,0)
-                to[short] (-2.5,3)
-                to[short,-*] (-2,3)
-                to[european resistor,-*,l={$ R_1 $},a={$ I_1 $}] (0,4.5)
-                to[european resistor,-*,l={$ R_3 $},a={$ I_3 $}] (2,3);
-                \draw (-2,3)
-                to[european resistor,-*,l={$ R_2 $},a={$ I_2 $}] (0,1.5)
-                to[european resistor,-*,l={$ R_x $},a={$ I_4 $}] (2,3);
-                \draw (0,4.5)
-                to[short] (0,5)
-                to[short] (3,5)
-                to[voltmeter,l={$ U_0 $}] (5,5)
-                to[short] (5,1)
-                to[short] (0,1)
-                to[short] (0,1.5);
-                \draw (0.9,0)
-                to[battery,o-,a={$ E $}] (3,0)
-                to[short] (3,3)
-                to[short] (2,3);
-                \node[below] at(0.45,0) {$ K $};
-            \end{circuitikz}
-        }
-        \caption{非平衡电桥电路图}
-    \end{figure}
-\end{minipage}\end{center}
-
-
-将式(\ref{2-3-3-2})代入式(\ref{2-3-3-1})即可得到$ U_0 $与$ T $间的函数关系，对$ U_0 $作泰勒展开，略去三阶及以上的高阶项，可以得到
-\begin{equation}
-U_0=U_{01}+U_0'(T-T_1)+U_0''(T-T_1)^2
-\end{equation}
-其中$ T_1 $为测试区间的中间值，例如监测$ 30\sim 50 $\,\textcelsius 的温度区间，取$ T_1=40\mathrm{^\circ C} $。令$ U_0''=0 $，可得
-\begin{equation}\label{28}
-    R_x=A\,e^{B/T}=\frac{B+2T}{B-2T}R_2
-\end{equation}
-那么得到$ U_0 $关于$ T $的线性表达：
-\begin{equation}
-U_0=\lambda+m(t-t_1)
-\end{equation}
-其中
-\begin{equation}
-\lambda=\left(\frac{B+2T_1}{2B}-\frac{R_3}{R_1+R_3}\right)E=U_{01},\quad m=\left(\frac{4T_1^2-B^2}{4BT_1^2}\right)E=U_0'
-\end{equation}
-由于是温度差，绝对温度$ T $可换成摄氏温度$ t $。而$ \lambda $表示在温度区间中间值时对应的$ U_0 $值，$ m $表示灵敏度。
-
-
-根据选定的$ \lambda,\,m $，由两个温度点求得$ A,\,B $，以及式(\ref{28})可计算得到$ R_2,\frac{R_1}{R_3},E $，具体表达式如下：
-\begin{equation}
-E=\left(\frac{4BT_1^2}{4T_1^2-B^2}\right)m,\quad R_2=\frac{B-2T}{B+2T}R_{xT_1},\quad\frac{R_1}{R_3}=\frac{2BE}{(B+2T_1)E-2B\lambda}-1
-\end{equation}
-根据计算结果即可设定非平衡电桥的相应参数。
-
-\subsection{实验步骤}
-\subsubsection{用电位差计测热电偶的温差电动势}
-\begin{enumerate}
-\item 在室温下测得热电偶的电动势。
-\item 开启温控仪电源，对热端加热，在$ 30\sim 50\mathrm{^\circ C} $区间内每隔$ 5\,\mathrm{^\circ C} $测定一组$ (t,E_x) $\footnote{需等温度稳定后进行读数测量。}。
-\item 绘制温度特性曲线，通过线性拟合求得温度系数。
-\end{enumerate}
-
-\subsubsection{用平衡电桥测热敏电阻和铜电阻的电阻值}
-\begin{enumerate}
-\item 在室温下测得热敏电阻、铜电阻的电阻值。
-\item 在$ 30\sim 50\,\mathrm{^\circ C} $区间内每隔$ 5\mathrm{^\circ C} $测定一组$ (t,R_x) $。
-\item 绘制温度特性曲线，通过线性拟合求温度系数。
-\end{enumerate}
-
-\subsubsection{用非平衡电桥制作热敏电阻温度计}
-选定$ \lambda = -400\,\mathrm{mV},\; m=-10\,\mathrm{mV/\mathrm{^\circ C}},\; t_1=40\mathrm{^\circ C} $，根据在$ 30\mathrm{^\circ C},\;50\mathrm{^\circ C} $下测得的热敏电阻大小计算$ A,\,B $，进而计算$ E,\,R_2,\,\frac{R_1}{R_3} $.
-
-根据计算结果设定非平衡电桥的参数，将温控仪温度设定为$ 40\mathrm{^\circ C} $，微调$ R_2 $阻值，使得电压表测得电压接近$ -400\,\mathrm{mV} $。
-
-改变温控仪温度，在$ 40\sim 50\mathrm{^\circ C} $区间内，每隔$ 2.5\mathrm{^\circ C} $测得一组$ U_0,\,t $，观察自制温度计测温的精度。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%\newpage
-%\subsection*{附录 A\hspace*{20pt} 原始数据记录表}
-%\addcontentsline{toc}{section}{附录 A\hspace*{6pt} 原始数据记录表} 
-\thispagestyle{fancy} 
-
-\begin{figure}[H]\centering
-    %\includepdf[pages=1, width=480pt]{pdf/原始数据-2-05组-丁毅-驻波实验-2024.12.03-王智茂.pdf}
-\end{figure}
-%includepdf[pages={2}]{pdf/原始数据-2-05组-丁毅-驻波实验-2024.12.03-王智茂.pdf}
-
-%\subsection*{附录 B\hspace*{20pt} Matlab 源码}
-%\addcontentsline{toc}{section}{附录 B\hspace*{6pt} Matlab 源码} 
-\thispagestyle{fancy} 
-%\lstinputlisting{d:/a_RemoteRepo/GH.MatlabCodes/本科课程代码/基础物理实验/Ex_3/Ex_03_mfile.m}
+其中$a$为物体在A点附近的加速度
+本实验可以通过改变挡光距离$\Delta s$观察平均速度和瞬时速度的关系，分别画出 $v$-$t$ 图和 $v$-$x$ 图，利用外
+推法求出瞬时速度。
 
 \end{document}
 
