@@ -14,7 +14,7 @@ git clone ssh://git@ssh.github.com:443/YiDingg/UCAS-BasicPhysicsExperiment.git  
 ## Other Resources
 下表列出了目前收集到的前辈的实验报告，姓名上的超链接指向对应的 GitHub 仓库，姓名后提供了两种下载方式：GitHub (主要方式) 和 123 云盘 (备用方式)。
 - Using LaTex
-    - [2023 丁 Y](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment) : [Download from GitHub](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment/archive/refs/heads/main.zip), [Download from 123 Pan (备用链接)](https://www.123865.com/s/0y0pTd-NOKj3)
+    - [2023 丁 Y](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment) : [Download from GitHub](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment/archive/refs/heads/main.zip), [Download from 123 Pan (备用链接)](https://www.123865.com/s/0y0pTd-wPuj3)
     - [2023 潘 TL](https://github.com/ldiex/UCAS-BasicPhysicsExperiment/tree/main) : [Download from GitHub](https://github.com/ldiex/UCAS-BasicPhysicsExperiment/archive/refs/heads/main.zip)
     - [2019 桂 TH](https://github.com/Gerald-Gui/UCAS-Physics-Fundamental-Experiments-Report)
     - [2022 李 G](https://github.com/Nshx-Z/Guo-UCASPhysics-Experiments-Reports.github.io)
