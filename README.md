@@ -2,17 +2,17 @@
 
 ## About the Repository
 
-为了同学们能够更好地借鉴合理且严谨的表达和排版方式，快速入门物理实验，掌握实验报告的撰写流程，用最少的时间尽量多地去领略物理实验中的精巧与优美，我整理了多位学长学姐与本人的实验报告。
+为了同学们能够更好地借鉴合理且严谨的表达和排版方式，快速入门物理实验，掌握实验报告的撰写流程，用最少的时间尽量多地去领略物理实验中的精巧与优美，我整理了自己和多位学长学姐的实验报告。
 
-**本仓库仅包含本人的实验报告**，也提供了多位学长学姐的报告（网址）以供参考。如果你擅长并愿意使用 LaTex 来排版你的实验报告，可以直接 [download](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment/archive/refs/heads/main.zip)、clone 甚至 [fork](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment/fork) 本仓库，也可以到备用网址 [（待更新）(123 云盘)]() 下载本仓库。
+**本仓库仅包含本人的实验报告**，本课程十篇报告的最终成绩为 95 分，请酌情参考。此外，仓库也提供了多位学长学姐的报告（网址）以供参考。如果你擅长并愿意使用 LaTex 来排版你的实验报告，可以直接 [download](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment/archive/refs/heads/main.zip)、clone 甚至 [fork](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment/fork) 本仓库，也可以到备用网址 [123 云盘](https://www.123865.com/s/0y0pTd-wPuj3) 下载本仓库。
 ``` shell
 git clone ssh://git@ssh.github.com:443/YiDingg/UCAS-BasicPhysicsExperiment.git    # clone 本仓库
 ```
-仓库的内容包括 `.pdf` 实验报告、`.tex` 源文件、原始数据、实验照片、作图专用纸、预习报告以及MATLAB 源代码等，但是，考虑到仓库大小限制，实验讲义资源和其他前辈的报告并没有放在仓库中，如有需要，可到网址 [（待更新）(123 云盘)]() 自行下载。
+仓库的内容包括 `.pdf` 实验报告、`.tex` 源文件、原始数据、实验照片、作图专用纸、预习报告以及 MATLAB 源代码等，但是，考虑到仓库大小限制，实验讲义资源和其他前辈的报告并没有放在仓库中，如有需要，可到网址 [（待更新）(123 云盘)]() 自行下载。
 
 
 ## Other Resources
-下表列出了目前收集到的前辈的实验报告，姓名上的超链接指向对应的 GitHub 仓库，姓名后提供了两种下载方式：GitHub (主要方式) 和 123 云盘 (备用方式)。
+下表列出了目前收集到的前辈的实验报告，姓名上的超链接指向对应的 GitHub 仓库，姓名后提供了两种下载方式： GitHub (主要方式) 和 123 云盘 (备用方式)。
 - Using LaTex
     - [2023 丁 Y](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment) : 
         [Download from GitHub](https://github.com/YiDingg/UCAS-BasicPhysicsExperiment/archive/refs/heads/main.zip), 
@@ -26,7 +26,7 @@ git clone ssh://git@ssh.github.com:443/YiDingg/UCAS-BasicPhysicsExperiment.git  
     - [2022 张 YK](https://github.com/zykucas/UCAS-Experimental-Physics)
     - [2019 桂 TH](https://github.com/Gerald-Gui/UCAS-Physics-Fundamental-Experiments-Report)
 
-如果你**不使用 LaTex 而是使用 Word**，需要参考 `.docx` 源文件，可到下方网址下载其他前辈的实验报告。
+如果你**不使用 LaTex 而是使用 Word**, 需要参考 `.docx` 源文件，可到下方网址下载其他前辈的实验报告。
 
 <!-- [报告汇总网址 here (123 云盘)](https://www.123865.com/s/0y0pTd-gOKj3) -->
 
